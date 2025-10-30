@@ -1,0 +1,16 @@
+project_id = "zhqjyzibqourvrfvkpil"
+
+[functions.send-signal-notification]
+verify_jwt = false
+
+[functions.handle-alert-signup]
+verify_jwt = false
+
+[functions.send-scnro-ed-notification]
+verify_jwt = false
+
+[functions.send-scnro-schools-notification]
+verify_jwt = false
+
+[functions.send-campus-inquiry]
+verify_jwt = false

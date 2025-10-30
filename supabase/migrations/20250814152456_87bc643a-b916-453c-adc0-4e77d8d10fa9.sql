@@ -1,0 +1,1 @@
+DELETE FROM culture_videos WHERE category = 'general';

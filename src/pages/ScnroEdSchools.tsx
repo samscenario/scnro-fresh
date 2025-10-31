@@ -5,8 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Users, Award, TrendingUp } from "lucide-react";
 
 const ScnroEdSchools = () => {
-
-  // Brevo submit handler goes here
+  // Brevo submit handler
   const handleBrevoSubmit = async () => {
     const emailInput = (document.getElementById("schoolEmail") as HTMLInputElement).value;
     if (!emailInput) {
@@ -15,8 +14,8 @@ const ScnroEdSchools = () => {
     }
 
     try {
-      const apiKey = "YOUR_BREVO_API_KEY"; // replace with your key
-      const listId = YOUR_LIST_ID; // replace with your Brevo list id
+      const apiKey = "YOUR_BREVO_API_KEY"; // replace with your actual key
+      const listId = YOUR_LIST_ID; // replace with your Brevo list ID (no quotes)
 
       await fetch("https://api.brevo.com/v3/contacts", {
         method: "POST",
@@ -39,40 +38,10 @@ const ScnroEdSchools = () => {
     }
   };
 
-  // RETURN your JSX
-  return (
-    <div className="min-h-screen bg-background">
-      {/* Your existing JSX content goes here */}
-    </div>
-  );
-};
-
-        body: JSON.stringify({
-          email: emailInput,
-          listIds: [listId],
-          updateEnabled: true
-        })
-      });
-
-      alert("Success! We will contact you soon.");
-      (document.getElementById("schoolEmail") as HTMLInputElement).value = "";
-    } catch (err) {
-      console.error(err);
-      alert("Submission failed. Please try again.");
-    }
-  };
-
-  return (
-    <div className="min-h-screen bg-background">
-      {/* Your existing JSX content goes here */}
-    </div>
-  );
-};
-
+  // Return JSX
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
           {/* Hero Section */}
@@ -98,12 +67,12 @@ const ScnroEdSchools = () => {
             </CardHeader>
             <CardContent className="space-y-4">
               <p>
-                The <strong>Mental Toughness in Education Programme</strong> supports schools and colleges in developing students' resilience, 
-                motivation, confidence, and self-control — the non-cognitive skills proven to impact academic performance, wellbeing, 
+                The <strong>Mental Toughness in Education Programme</strong> supports schools and colleges in developing students' resilience,
+                motivation, confidence, and self-control — the non-cognitive skills proven to impact academic performance, wellbeing,
                 and transition readiness.
               </p>
               <p>
-                This <strong>6-week Saturday (or in-school) programme</strong> blends the <strong>MTQ Psychological Assessment</strong> with 
+                This <strong>6-week Saturday (or in-school) programme</strong> blends the <strong>MTQ Psychological Assessment</strong> with
                 coaching and creative workshops to help young people thrive both inside and outside the classroom.
               </p>
             </CardContent>
@@ -141,135 +110,5 @@ const ScnroEdSchools = () => {
 
             <Card>
               <CardHeader>
-                <CardTitle>Programme Costs</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="p-4 bg-muted rounded-lg">
-                  <p className="font-semibold text-lg mb-1">Partner School (Standard)</p>
-                  <p className="text-3xl font-bold text-electric-blue">£500</p>
-                  <p className="text-sm text-muted-foreground mt-2">
-                    Full 6-week MTQ & Coaching Programme<br />
-                    per 10 students (£50 each)
-                  </p>
-                </div>
-                <div className="p-4 bg-muted rounded-lg">
-                  <p className="font-semibold text-lg mb-1">Member School</p>
-                  <p className="text-3xl font-bold text-purple-500">£350/year</p>
-                  <p className="text-sm text-muted-foreground mt-2">
-                    Annual contribution for up to 10 student places per term + reduced MTQ fees
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+                <Ca
 
-          {/* Programme Components */}
-          <Card className="mb-12">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Award className="h-6 w-6" />
-                Programme Components
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-purple-500 mt-0.5 flex-shrink-0" />
-                  <p>Two professional MTQ Assessments (measure mindset & progress)</p>
-                </div>
-                <div className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-purple-500 mt-0.5 flex-shrink-0" />
-                  <p>1:1 feedback and coaching sessions for each student</p>
-                </div>
-                <div className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-purple-500 mt-0.5 flex-shrink-0" />
-                  <p>The 4C's Framework: Control • Commitment • Challenge • Confidence</p>
-                </div>
-                <div className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-purple-500 mt-0.5 flex-shrink-0" />
-                  <p>Final reflection and progress report for each learner</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Why Schools Get Involved */}
-          <Card className="mb-12">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <TrendingUp className="h-6 w-6" />
-                Why Schools Get Involved
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-electric-blue mt-0.5 flex-shrink-0" />
-                  <p>Evidence measurable progress in personal development & wellbeing</p>
-                </div>
-                <div className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-electric-blue mt-0.5 flex-shrink-0" />
-                  <p>Strengthen student resilience and self-belief ahead of exams and transitions</p>
-                </div>
-                <div className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-electric-blue mt-0.5 flex-shrink-0" />
-                  <p>Gain data reports from MTQ Assessments for internal evaluation</p>
-                </div>
-                <div className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-electric-blue mt-0.5 flex-shrink-0" />
-                  <p>Access optional staff CPD to embed mental toughness strategies in teaching</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-         {/* CTA Section */}
-<div className="text-center mt-12">
-  {/* Email input */}
- <input
-  type="email"
-  id="schoolEmail"
-  placeholder="Enter your school email"
-  className="p-2 border rounded w-full max-w-xs mb-4"
-/>
-
-
-  {/* Register button */}
-  <Button
-  size="lg"
-  className="text-lg px-8 py-6"
-  onClick={handleBrevoSubmit}
->
-  Register Your School
-</Button>
-
-
-  {/* Optional small note */}
-  <p className="text-sm text-muted-foreground mt-4">
-    Our education team will contact you to discuss programme details and pricing
-  </p>
-</div>
-
-            <p className="text-sm text-muted-foreground mt-4">
-              Our education team will contact you to discuss programme details and pricing
-            </p>
-          </div>
-
-          {/* Contact */}
-          <div className="mt-16 text-center space-y-2">
-            <h3 className="text-xl font-semibold">Questions About the Programme?</h3>
-            <p className="text-muted-foreground">Contact us to discuss how we can support your school</p>
-            <p className="text-muted-foreground">
-              <strong>Email:</strong> <a href="mailto:admin@scenarioarts.co.uk" className="text-electric-blue hover:underline">admin@scenarioarts.co.uk</a>
-            </p>
-            <p className="text-muted-foreground">
-              <strong>Website:</strong> <a href="https://scnro.live" className="text-electric-blue hover:underline">scnro.live</a>
-            </p>
-          </div>
-        </div>
-      </main>
-    </div>
-  );
-};
-
-export default ScnroEdSchools;

@@ -5,6 +5,70 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Users, Award, TrendingUp } from "lucide-react";
 
 const ScnroEdSchools = () => {
+
+  // Brevo submit handler goes here
+  const handleBrevoSubmit = async () => {
+    const emailInput = (document.getElementById("schoolEmail") as HTMLInputElement).value;
+    if (!emailInput) {
+      alert("Please enter your email");
+      return;
+    }
+
+    try {
+      const apiKey = "YOUR_BREVO_API_KEY"; // replace with your key
+      const listId = YOUR_LIST_ID; // replace with your Brevo list id
+
+      await fetch("https://api.brevo.com/v3/contacts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "api-key": apiKey
+        },
+        body: JSON.stringify({
+          email: emailInput,
+          listIds: [listId],
+          updateEnabled: true
+        })
+      });
+
+      alert("Success! We will contact you soon.");
+      (document.getElementById("schoolEmail") as HTMLInputElement).value = "";
+    } catch (err) {
+      console.error(err);
+      alert("Submission failed. Please try again.");
+    }
+  };
+
+  // RETURN your JSX
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Your existing JSX content goes here */}
+    </div>
+  );
+};
+
+        body: JSON.stringify({
+          email: emailInput,
+          listIds: [listId],
+          updateEnabled: true
+        })
+      });
+
+      alert("Success! We will contact you soon.");
+      (document.getElementById("schoolEmail") as HTMLInputElement).value = "";
+    } catch (err) {
+      console.error(err);
+      alert("Submission failed. Please try again.");
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Your existing JSX content goes here */}
+    </div>
+  );
+};
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -159,13 +223,33 @@ const ScnroEdSchools = () => {
             </CardContent>
           </Card>
 
-          {/* CTA */}
-          <div className="text-center">
-            <ScnroSchoolsDialog>
-              <Button size="lg" className="text-lg px-8 py-6">
-                Register Your School
-              </Button>
-            </ScnroSchoolsDialog>
+         {/* CTA Section */}
+<div className="text-center mt-12">
+  {/* Email input */}
+ <input
+  type="email"
+  id="schoolEmail"
+  placeholder="Enter your school email"
+  className="p-2 border rounded w-full max-w-xs mb-4"
+/>
+
+
+  {/* Register button */}
+  <Button
+  size="lg"
+  className="text-lg px-8 py-6"
+  onClick={handleBrevoSubmit}
+>
+  Register Your School
+</Button>
+
+
+  {/* Optional small note */}
+  <p className="text-sm text-muted-foreground mt-4">
+    Our education team will contact you to discuss programme details and pricing
+  </p>
+</div>
+
             <p className="text-sm text-muted-foreground mt-4">
               Our education team will contact you to discuss programme details and pricing
             </p>
